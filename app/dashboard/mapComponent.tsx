@@ -6,11 +6,10 @@ import { useRouter } from "expo-router";
 
 function SvgComponent(props: any) {
   const router = useRouter();
-  const { width, height } = useWindowDimensions();
+  const { width } = useWindowDimensions();
 
-  // Defina um tamanho proporcional baseado na largura da tela
-  const svgWidth = width * 1.1; // 90% da largura da tela
-  const svgHeight = (svgWidth * 460) / 450; // Mantém a proporção original
+  const svgWidth = width * 1.1; 
+  const svgHeight = (svgWidth * 460) / 450; 
 
   const handlePress = (estadoId: string) => {
     console.log('chgou aqui', estadoId)
@@ -25,6 +24,7 @@ function SvgComponent(props: any) {
       xmlns="http://www.w3.org/2000/svg"
       x="0px"
       y="0px"
+      pointerEvents="box-none"
       width={svgWidth}
       height={svgHeight}
       viewBox="0 0 450 440"
@@ -35,20 +35,25 @@ function SvgComponent(props: any) {
         <G key={estado.id} className="estado">
           {Array.isArray(estado.d) ? (
             estado.d.map((pathD, idx) => (
+              <G key={idx} onPress={() => handlePress(estado.id)} pointerEvents="box-only">
               <Path
                 key={idx}
                 d={pathD}
                 stroke="#FFF"
+                 pointerEvents="auto"
                 strokeWidth={2.1404}
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 fill={estado.defaultColor}
                 onPress={() => handlePress(estado.id)}
               />
+              </G>
             ))
           ) : (
+            <G key={estado.id} onPress={() => handlePress(estado.id)} pointerEvents="box-only">
             <Path
               d={estado.d}
+               pointerEvents="auto"
               stroke="#FFF"
               strokeWidth={1.0404}
               strokeLinecap="round"
@@ -56,6 +61,7 @@ function SvgComponent(props: any) {
               fill={estado.defaultColor}
               onPress={() => handlePress(estado.name)}
             />
+            </G>
           )}
 
           <Text
