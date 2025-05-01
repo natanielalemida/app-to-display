@@ -21,36 +21,24 @@ function SvgComponent(props: any) {
 
   return (
     <Svg
-      xmlns="http://www.w3.org/2000/svg"
-      x="0px"
-      y="0px"
-      pointerEvents="box-none"
-      width={svgWidth}
-      height={svgHeight}
-      viewBox="0 0 450 440"
-      xmlSpace="preserve"
-      {...props}
     >
       {estado.map((estado) => (
         <G key={estado.id} className="estado">
           {Array.isArray(estado.d) ? (
             estado.d.map((pathD, idx) => (
-              <G key={idx} onPress={() => handlePress(estado.id)} pointerEvents="box-only">
-              <Path
-                key={idx}
-                d={pathD}
-                stroke="#FFF"
-                 pointerEvents="auto"
-                strokeWidth={2.1404}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                fill={estado.defaultColor}
-                onPress={() => handlePress(estado.id)}
-              />
-              </G>
+<Path
+key={idx}
+  d={pathD}
+  stroke="#FFF"
+  strokeWidth={2.1404}
+  strokeLinecap="round"
+  strokeLinejoin="round"
+  fill={estado.defaultColor}
+  onPressIn={() => handlePress(estado.id)}
+/>
+
             ))
           ) : (
-            <G key={estado.id} onPress={() => handlePress(estado.id)} pointerEvents="box-only">
             <Path
               d={estado.d}
                pointerEvents="auto"
@@ -59,9 +47,8 @@ function SvgComponent(props: any) {
               strokeLinecap="round"
               strokeLinejoin="round"
               fill={estado.defaultColor}
-              onPress={() => handlePress(estado.name)}
+              onPressIn={() => handlePress(estado.name)}
             />
-            </G>
           )}
 
           <Text
