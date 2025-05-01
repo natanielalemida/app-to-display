@@ -32,6 +32,13 @@
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
+        },
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/RedHatText-Italic-VariableFont_wght.ttf",
+            "./assets/fonts/RedHatText-VariableFont_wght.ttf"
+          ]
         }
       ]
     ],

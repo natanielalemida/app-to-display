@@ -1,71 +1,114 @@
-import React from 'react';
-import { View, StyleSheet, TouchableOpacity, Text, Image } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, StyleSheet, Text, Image, TouchableOpacity, useWindowDimensions, Dimensions } from 'react-native';
 import QRCode from 'react-native-qrcode-svg';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from 'expo-router';
+import * as Font from 'expo-font';
 
 // Cores e assets
 const COLORS = {
   CASTERINE: '#FA7D55',
   COLSON: '#EA1C2F',
   BACKGROUND: '#FFFFFF',
-  TEXT: '#0F191E'
+  TEXT: '#000000',
 };
 
-// Supondo que você tenha esses assets
 const casterineLogo = require('../../assets/images/Logo-Casterine.png');
 const colsonLogo = require('../../assets/images/Logo-Colson.png');
 
 export default function Representante() {
-    const navigation = useNavigation();
+  const navigation = useNavigation();
+  const [fontsLoaded, setFontsLoaded] = useState(false);
+  const { width, height } = useWindowDimensions();
+  const screen = Dimensions.get('screen');
+
+  useEffect(() => {
+    async function loadFonts() {
+      await Font.loadAsync({
+        'RedHatText-Variable': require('../../assets/fonts/RedHatText-VariableFont_wght.ttf'),
+      });
+      setFontsLoaded(true);
+    }
+    
+    loadFonts();
+  }, []);
+
+  if (!fontsLoaded) {
+    return <View />;
+  }
+
+  // Funções para calcular dimensões responsivas
+  const responsiveWidth = (percentage) => (width * percentage) / 100;
+  const responsiveHeight = (percentage) => (height * percentage) / 100;
+  const responsiveFontSize = (percentage) => Math.min(width, height) * percentage / 100;
+
   return (
     <View style={styles.container}>
-      {/* Header com botão de voltar */}
-      <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
-          <Ionicons name="arrow-back" size={24} color={COLORS.TEXT} />
-        </TouchableOpacity>
-      </View>
-
-      {/* Logos das empresas */}
-      <View style={styles.logoContainer}>
-        <Image 
-          source={casterineLogo} 
-          style={[styles.logo, { tintColor: COLORS.CASTERINE }]} 
-          resizeMode="contain"
-        />
-        <View style={styles.divider} />
-        <Image 
-          source={colsonLogo} 
-          style={[styles.logo, { tintColor: COLORS.COLSON }]} 
-          resizeMode="contain"
-        />
-      </View>
-
-      {/* QR Code */}
-      <View style={styles.qrContainer}>
-        <Text style={styles.qrTitle}>Aponte sua câmera</Text>
-        <Text style={styles.qrSubtitle}>para acessar nosso site</Text>
-        
-        <View style={styles.qrCodeWrapper}>
-          <QRCode
-            value="https://www.google.com"
-            size={200}
-            color={COLORS.TEXT}
-            backgroundColor={COLORS.BACKGROUND}
-            logoSize={60}
-            logoMargin={10}
-            logoBorderRadius={10}
+      {/* Header */}
+      <View style={[styles.header, { height: responsiveHeight(10) }]}>
+        <Text style={[styles.headerText, { fontSize: responsiveFontSize(4) }]}>Contato</Text>
+        <View style={styles.logoContainer}>
+          <Image 
+            source={colsonLogo} 
+            style={[styles.logo, { 
+              width: responsiveWidth(18), 
+              height: responsiveHeight(6) 
+            }]} 
+            resizeMode="contain" 
+          />
+          <View style={[styles.divider, { 
+            height: responsiveHeight(5), 
+            marginHorizontal: responsiveWidth(5) 
+          }]} />
+          <Image 
+            source={casterineLogo} 
+            style={[styles.logoCasterien, { 
+              width: responsiveWidth(25), 
+              height: responsiveHeight(6) 
+            }]} 
+            resizeMode="contain" 
           />
         </View>
-        
-        <Text style={styles.qrHelp}>Ou visite: www.google.com</Text>
       </View>
 
-      {/* Rodapé minimalista */}
-      <View style={styles.footer}>
-        <Text style={styles.footerText}>© 2023 Casterine & Colson</Text>
+      {/* Conteúdo */}
+      <View style={[styles.content, { padding: responsiveWidth(4) }]}>
+        <Text style={[styles.title, { fontSize: responsiveFontSize(10.5) }]}>
+          Receber contato de representante
+        </Text>
+        <Text style={[styles.subtitle, { 
+          fontSize: responsiveFontSize(3), 
+          marginBottom: responsiveHeight(5) 
+        }]}>
+          Use o QR code abaixo para solicitar o contato de um representante.
+        </Text>
+
+        <View style={[styles.qrCodeWrapper, { 
+          padding: responsiveWidth(2.5), 
+          borderRadius: responsiveWidth(4) 
+        }]}>
+          <QRCode
+            value="https://docs.google.com/forms/d/e/1FAIpQLSeEQnnogVAgVYoWPQ_ieWtIts0-gA_WuuV3g7ee4tHkT842dg/viewform?usp=send_form"
+            size={responsiveWidth(55)}
+            color={COLORS.TEXT}
+            backgroundColor={COLORS.BACKGROUND}
+            logoBackgroundColor="transparent"
+          />
+        </View>
       </View>
+
+      {/* Botão home flutuante */}
+      <TouchableOpacity 
+        style={[styles.homeButton, { 
+          right: responsiveWidth(5), 
+          bottom: responsiveHeight(6), 
+          padding: responsiveWidth(3),
+          borderRadius: responsiveWidth(50),
+        }]} 
+        onPress={() => navigation.goBack()}
+      >
+        <Ionicons name="home-outline" size={responsiveFontSize(4.2)} color="#fff" />
+      </TouchableOpacity>
     </View>
   );
 }
@@ -74,77 +117,65 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.BACKGROUND,
-    paddingHorizontal: 24,
   },
   header: {
-    paddingTop: 50,
-    paddingBottom: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: '5%',
+    backgroundColor: COLORS.BACKGROUND,
+    shadowColor: "#000",
+    shadowOffset: {
+        width: 0,
+        height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 15,
   },
-  backButton: {
-    padding: 8,
-    alignSelf: 'flex-start',
+  headerText: {
+    fontFamily: 'RedHatText-Variable',
+    fontWeight: '700',
+    color: COLORS.TEXT,
   },
   logoContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginVertical: 30,
+    marginTop: '2%',
   },
-  logo: {
-    width: 120,
-    height: 60,
-  },
+  logo: {},
+  logoCasterien: {},
   divider: {
     width: 1,
-    height: 40,
     backgroundColor: '#E0E0E0',
-    marginHorizontal: 20,
   },
-  qrContainer: {
+  content: {
     flex: 1,
-    alignItems: 'center',
     justifyContent: 'center',
-    paddingBottom: 100,
+    marginBottom: '10%',
   },
-  qrTitle: {
-    fontSize: 22,
-    fontWeight: '600',
+  title: {
+    fontFamily: 'RedHatText-Variable',
+    fontWeight: '700', 
     color: COLORS.TEXT,
-    marginBottom: 8,
+    textAlign: 'left',
+    marginBottom: '2%',
   },
-  qrSubtitle: {
-    fontSize: 16,
+  subtitle: {
+    fontFamily: 'RedHatText-Variable',
     color: COLORS.TEXT,
-    opacity: 0.7,
-    marginBottom: 30,
+    textAlign: 'center',
   },
   qrCodeWrapper: {
-    padding: 20,
-    backgroundColor: '#FFF',
-    borderRadius: 16,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.1,
-    shadowRadius: 10,
-    elevation: 5,
-    marginBottom: 30,
-  },
-  qrHelp: {
-    fontSize: 14,
-    color: COLORS.TEXT,
-    opacity: 0.6,
-    marginTop: 20,
-  },
-  footer: {
-    position: 'absolute',
-    bottom: 30,
-    left: 0,
-    right: 0,
+    justifyContent: 'center',
     alignItems: 'center',
+    width: '100%',
+    backgroundColor: '#FFF',
   },
-  footerText: {
-    fontSize: 12,
-    color: COLORS.TEXT,
-    opacity: 0.5,
+  homeButton: {
+    position: 'absolute',
+    backgroundColor: COLORS.COLSON,
+    elevation: 6,
   },
 });
