@@ -1,25 +1,32 @@
 import * as React from "react";
+import { useWindowDimensions } from "react-native";
 import Svg, { G, Path, Text } from "react-native-svg";
 import { estado } from "./brasil";
 import { useRouter } from "expo-router";
 
 function SvgComponent(props: any) {
   const router = useRouter();
+  const { width, height } = useWindowDimensions();
 
-const handlePress = (estadoId: string) => {
-  router.push({
-    pathname: "/dashboard/[id]",
-    params: { id: estadoId },
-  });
-}
+  // Defina um tamanho proporcional baseado na largura da tela
+  const svgWidth = width * 1.1; // 90% da largura da tela
+  const svgHeight = (svgWidth * 460) / 450; // Mantém a proporção original
+
+  const handlePress = (estadoId: string) => {
+    console.log('chgou aqui', estadoId)
+    router.push({
+      pathname: "/dashboard/[id]",
+      params: { id: estadoId },
+    });
+  }
 
   return (
     <Svg
       xmlns="http://www.w3.org/2000/svg"
       x="0px"
       y="0px"
-      width="450px"
-      height="460px"
+      width={svgWidth}
+      height={svgHeight}
       viewBox="0 0 450 440"
       xmlSpace="preserve"
       {...props}
