@@ -152,8 +152,10 @@ export default function Roleta() {
 		const contentRadius = RADIUS * 0.65;
 
 		if (sector.type === 'logo') {
-			const logoWidth = WHEEL_SIZE * 0.18;
-			const logoHeight = WHEEL_SIZE * 0.09;
+			const isCasterineLogo = sector.content === casterineLogo;
+
+			const logoWidth = isCasterineLogo ? WHEEL_SIZE * 0.25 : WHEEL_SIZE * 0.18;
+			const logoHeight = isCasterineLogo ? WHEEL_SIZE * 0.11 : WHEEL_SIZE * 0.09;
 			const x = CENTER + contentRadius * Math.cos(centerAngle) - logoWidth / 2;
 			const y = CENTER + contentRadius * Math.sin(centerAngle) - logoHeight / 2;
 
@@ -200,7 +202,7 @@ export default function Roleta() {
 				</TouchableOpacity>
 			)}
 
-			{!result && <RNText style={styles.title}>Roleta</RNText>}
+			<RNText></RNText>
 
 			{result && (
 				<View style={[styles.resultContainer]}>

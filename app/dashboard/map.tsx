@@ -7,6 +7,7 @@ import {
   useWindowDimensions,
   Image,
   TouchableOpacity,
+  Dimensions,
 } from "react-native";
 import Svg from "react-native-svg";
 import SvgComponent from "./mapComponent";
@@ -20,6 +21,9 @@ const COLORS = {
   TEXT: '#000000',
 };
 
+
+const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
+
 export default function Map() {
    const navigation = useNavigation();
   const casterineLogo = require('../../assets/images/Logo-Casterine.png');
@@ -31,40 +35,22 @@ export default function Map() {
 
   return (
     <View style={styles.container}>
-      <View style={[styles.header, { 
-        height: responsiveHeight(10),
-        paddingHorizontal: responsiveWidth(5),
-        shadowOffset: {
-          width: 0,
-          height: responsiveHeight(0.2),
-        },
-        shadowRadius: responsiveWidth(1),
-        elevation: responsiveWidth(3.75),
-      }]}>
-        <Text style={[styles.headerText, { fontSize: responsiveFontSize(4) }]}>Representantes</Text>
-        <View style={styles.logoContainer}>
-          <Image 
-            source={colsonLogo} 
-            style={[styles.logo, { 
-              width: responsiveWidth(18), 
-              height: responsiveHeight(6) 
-            }]} 
-            resizeMode="contain" 
-          />
-          <View style={[styles.divider, { 
-            height: responsiveHeight(5), 
-            marginHorizontal: responsiveWidth(5) 
-          }]} />
-          <Image 
-            source={casterineLogo} 
-            style={[styles.logoCasterien, { 
-              width: responsiveWidth(25), 
-              height: responsiveHeight(6) 
-            }]} 
-            resizeMode="contain" 
-          />
-        </View>
-      </View>
+<View style={styles.header}>
+              <View style={styles.logoRow}>
+                <Image
+                  source={colsonLogo}
+                  style={[styles.logo]}
+                  resizeMode="contain"
+                />
+                <View style={styles.divider} />
+                <Image
+                  source={casterineLogo}
+                  style={[styles.logoCasterine]}
+                  resizeMode="contain"
+                />
+              </View>
+            </View>
+
       <Animated.View style={[styles.svgContainer, {
         width: responsiveWidth(100),
         height: responsiveHeight(60),
@@ -86,12 +72,12 @@ export default function Map() {
               style={[styles.homeButton, { 
                 right: responsiveWidth(5), 
                 bottom: responsiveHeight(6), 
-                padding: responsiveWidth(3),
+                padding: responsiveWidth(4),
                 borderRadius: responsiveWidth(50),
               }]} 
               onPress={() => navigation.goBack()}
             >
-              <Ionicons name="home-outline" size={responsiveFontSize(4.2)} color="#fff" />
+              <Ionicons name="home-outline" size={responsiveFontSize(6.2)} color="#fff" />
             </TouchableOpacity>
     </View>
   );
@@ -103,31 +89,31 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     backgroundColor: 'white',
     alignItems: "center",
+    paddingHorizontal: screenWidth * 0.06,
+    paddingTop: screenHeight * 0.02,
   },
   header: {
-    width: '100%',
+    alignItems: 'center',
+  },
+  logoRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: COLORS.BACKGROUND,
-    shadowColor: "#000",
-    shadowOpacity: 0.25,
-  },
-  headerText: {
-    fontFamily: 'RedHatText-Variable',
-    fontWeight: '700',
-    color: COLORS.TEXT,
-  },
-  logoContainer: {
-    flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
   },
-  logo: {},
-  logoCasterien: {},
+  logo: {
+    width: screenWidth * 0.25,
+    height: screenHeight * 0.08,
+  },
+  logoCasterine: {
+    width: screenWidth * 0.4,
+    height: screenHeight * 0.1,
+  },
   divider: {
     width: 1,
-    backgroundColor: '#E0E0E0',
+    height: screenHeight * 0.05,
+    backgroundColor: '#919396',
+    marginHorizontal: screenWidth * 0.05,
+    opacity: 0.5,
   },
   homeButton: {
     position: 'absolute',

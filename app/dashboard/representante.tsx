@@ -13,6 +13,9 @@ const COLORS = {
   TEXT: '#000000',
 };
 
+
+const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
+
 const casterineLogo = require('../../assets/images/Logo-Casterine.png');
 const colsonLogo = require('../../assets/images/Logo-Colson.png');
 
@@ -20,7 +23,6 @@ export default function Representante() {
   const navigation = useNavigation();
   const [fontsLoaded, setFontsLoaded] = useState(false);
   const { width, height } = useWindowDimensions();
-  const screen = Dimensions.get('screen');
 
   useEffect(() => {
     async function loadFonts() {
@@ -45,31 +47,21 @@ export default function Representante() {
   return (
     <View style={styles.container}>
       {/* Header */}
-      <View style={[styles.header, { height: responsiveHeight(10) }]}>
-        <Text style={[styles.headerText, { fontSize: responsiveFontSize(4) }]}>Contato</Text>
-        <View style={styles.logoContainer}>
-          <Image 
-            source={colsonLogo} 
-            style={[styles.logo, { 
-              width: responsiveWidth(18), 
-              height: responsiveHeight(6) 
-            }]} 
-            resizeMode="contain" 
-          />
-          <View style={[styles.divider, { 
-            height: responsiveHeight(5), 
-            marginHorizontal: responsiveWidth(5) 
-          }]} />
-          <Image 
-            source={casterineLogo} 
-            style={[styles.logoCasterien, { 
-              width: responsiveWidth(25), 
-              height: responsiveHeight(6) 
-            }]} 
-            resizeMode="contain" 
-          />
-        </View>
-      </View>
+      <View style={styles.header}>
+              <View style={styles.logoRow}>
+                <Image
+                  source={colsonLogo}
+                  style={[styles.logo]}
+                  resizeMode="contain"
+                />
+                <View style={styles.divider} />
+                <Image
+                  source={casterineLogo}
+                  style={[styles.logoCasterine]}
+                  resizeMode="contain"
+                />
+              </View>
+            </View>
 
       {/* Conteúdo */}
       <View style={[styles.content, { padding: responsiveWidth(4) }]}>
@@ -102,12 +94,12 @@ export default function Representante() {
         style={[styles.homeButton, { 
           right: responsiveWidth(5), 
           bottom: responsiveHeight(6), 
-          padding: responsiveWidth(3),
+          padding: responsiveWidth(4),
           borderRadius: responsiveWidth(50),
         }]} 
         onPress={() => navigation.goBack()}
       >
-        <Ionicons name="home-outline" size={responsiveFontSize(4.2)} color="#fff" />
+        <Ionicons name="home-outline" size={responsiveFontSize(6.2)} color="#fff" />
       </TouchableOpacity>
     </View>
   );
@@ -117,38 +109,31 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.BACKGROUND,
+    paddingHorizontal: screenWidth * 0.06,
+    paddingTop: screenHeight * 0.02,
   },
   header: {
+    alignItems: 'center',
+  },
+  logoRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: '5%',
-    backgroundColor: COLORS.BACKGROUND,
-    shadowColor: "#000",
-    shadowOffset: {
-        width: 0,
-        height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 15,
-  },
-  headerText: {
-    fontFamily: 'RedHatText-Variable',
-    fontWeight: '700',
-    color: COLORS.TEXT,
-  },
-  logoContainer: {
-    flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: '2%',
   },
-  logo: {},
-  logoCasterien: {},
+  logo: {
+    width: screenWidth * 0.25,
+    height: screenHeight * 0.08,
+  },
+  logoCasterine: {
+    width: screenWidth * 0.4,
+    height: screenHeight * 0.1,
+  },
   divider: {
     width: 1,
-    backgroundColor: '#E0E0E0',
+    height: screenHeight * 0.05,
+    backgroundColor: '#919396',
+    marginHorizontal: screenWidth * 0.05,
+    opacity: 0.5,
   },
   content: {
     flex: 1,
