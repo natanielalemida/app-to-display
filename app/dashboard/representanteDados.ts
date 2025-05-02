@@ -2,7 +2,7 @@ export const representacaoSet = [
   {
     representacao: "AMPLA VENDAS LTDA",
     telefone: "31 9435-9554",
-    email: "fred@amplavendas.com.br",
+    email: "donaldo@dwmg.com.br",
     estado_id: "Minas Gerais"
   },
   {
@@ -10,6 +10,24 @@ export const representacaoSet = [
     telefone: "66 99223-1283",
     email: "paulolimarepresentacoesmt@gmail.com",
     estado_id: "Mato Grosso"
+  },
+  {
+    representacao: "ANA P G DORTA",
+    telefone: "66 99223-1283",
+    email: "paulolimarepresentacoesmt@gmail.com",
+    estado_id: "Mato Grosso do Sul"
+  },
+  {
+    representacao: "ANA P G DORTA",
+    telefone: "66 99223-1283",
+    email: "paulolimarepresentacoesmt@gmail.com",
+    estado_id: "Acre"
+  },
+  {
+    representacao: "ANA P G DORTA",
+    telefone: "66 99223-1283",
+    email: "paulolimarepresentacoesmt@gmail.com",
+    estado_id: "Rondônia"
   },
   {
     representacao: "ANTONIO LUIZ P GUIMARAES REPRESENTAÇÃO",
@@ -54,22 +72,10 @@ export const representacaoSet = [
     estado_id: "Santa Catarina"
   },
   {
-    representacao: "CAVALCANTE E GOMES REPRESENTAÇÕES COMERCIAIS LTDA",
-    telefone: "",
-    email: "",
-    estado_id: "São Paulo"
-  },
-  {
     representacao: "DAF REPRESENTACOES DE MATERIAIS DE CONSTRUCAO LTDA",
     telefone: "91 8843-0698",
     email: "daf.david2015@gmail.com",
     estado_id: "Pará"
-  },
-  {
-    representacao: "DAYANE REPRESENTACOES LTDA ME",
-    telefone: "",
-    email: "",
-    estado_id: "Santa Catarina"
   },
   {
     representacao: "DCA REPRESENTACOES LTDA",
@@ -80,14 +86,26 @@ export const representacaoSet = [
   {
     representacao: "DWMG REPRESENTACOES COMERCIAIS LTDA ME",
     telefone: "31 9581-5469",
-    email: "donaldo@dwmg.com.br",
+    email: "fred@amplavendas.com.br",
     estado_id: "Minas Gerais"
   },
   {
     representacao: "EGILDO ALVES REPRESENTACOES LTDA",
     telefone: "63 9977-9718",
     email: "egildoalves@egildoalves.com.br",
+    estado_id: "Tocantins"
+  },
+  {
+    representacao: "EGILDO ALVES REPRESENTACOES LTDA",
+    telefone: "63 9977-9718",
+    email: "egildoalves@egildoalves.com.br",
     estado_id: "Pará"
+  },
+  {
+    representacao: "EGILDO ALVES REPRESENTACOES LTDA",
+    telefone: "63 9977-9718",
+    email: "egildoalves@egildoalves.com.br",
+    estado_id: "Maranhão"
   },
   {
     representacao: "EMGRS REPRESENTAÇÃO LTDA",
@@ -108,6 +126,12 @@ export const representacaoSet = [
     estado_id: "Sergipe"
   },
   {
+    representacao: "EVOLUCAO REPRESENTACOES EIRELI",
+    telefone: "79 9986-8699",
+    email: "mrmatias1@hotmail.com",
+    estado_id: "Bahia"
+  },
+  {
     representacao: "F DE A L DE ANDRADE REPRESENTACOES (DRAGONFLY)",
     telefone: "84 9133-1359",
     email: "fco_leao@hotmail.com",
@@ -126,12 +150,6 @@ export const representacaoSet = [
     estado_id: "São Paulo"
   },
   {
-    representacao: "FRESMAX DO BRASIL LTDA",
-    telefone: "32 9985-0907",
-    email: "fresmaxdobrasil@yahoo.com.br",
-    estado_id: "Minas Gerais"
-  },
-  {
     representacao: "G2S REPRESENTAÇÕES LTDA",
     telefone: "27 98134 6077",
     email: "paulo@sartoretto-es.com.br",
@@ -146,7 +164,7 @@ export const representacaoSet = [
   {
     representacao: "GVA GESTAO DE NEGOCIOS LTDA",
     telefone: "21 99907-5597",
-    email: "elcio.pessoa@outlook.com",
+    email: "fresmaxdobrasil@yahoo.com.br",
     estado_id: "Minas Gerais"
   },
   {
@@ -154,12 +172,6 @@ export const representacaoSet = [
     telefone: "19 99708-3957",
     email: "heitor_lorencetti@hotmail.com",
     estado_id: "São Paulo"
-  },
-  {
-    representacao: "JA RIBEIRO MOTOS ME",
-    telefone: "",
-    email: "",
-    estado_id: "Distrito Federal"
   },
   {
     representacao: "JCAB REPRESENTACOES LTDA ME",
@@ -198,13 +210,7 @@ export const representacaoSet = [
     estado_id: "São Paulo"
   },
   {
-    representacao: "M J E MABERT REPRESENTACOES COMERCIAIS LTDA",
-    telefone: "21 99907-5597",
-    email: "tempomauricio@yahoo.com.br",
-    estado_id: "Rio de Janeiro"
-  },
-  {
-    representacao: "MALKA REPRESENTACÕES LTDA ME",
+    representacao: "MALKA REPRESENTACOES LTDA ME",
     telefone: "51 8436-8485",
     email: "malka.contato10@gmail.com",
     estado_id: "Rio Grande do Sul"
@@ -216,16 +222,22 @@ export const representacaoSet = [
     estado_id: "Piauí"
   },
   {
-    representacao: "MARCIO MACHADO PERITO ME",
-    telefone: "",
-    email: "",
-    estado_id: "São Paulo"
+    representacao: "MAPA REPRESENTAÇÃO",
+    telefone: "98 8881-9642",
+    email: "mapa.rep@terra.com.br",
+    estado_id: "Maranhão"
   },
   {
     representacao: "MASSAROTO REPRESENTAÇÕES COMERCIAIS",
     telefone: "19 99746-3530",
     email: "paulo@massaroto.com.br",
     estado_id: "São Paulo"
+  },
+  {
+    representacao: "M J E MABERT REPRESENTACOES COMERCIAIS LTDA",
+    telefone: "21 99907-5597",
+    email: "tempomauricio@yahoo.com.br",
+    estado_id: "Rio de Janeiro"
   },
   {
     representacao: "MN MARCELO REPRES. DE EQUIP. DE METAL LTDA",
@@ -236,7 +248,7 @@ export const representacaoSet = [
   {
     representacao: "MODELO ASSESSORIA DE VENDAS LTDA",
     telefone: "31 8752-1565",
-    email: "camilla@modelorepresentacoes.com.br",
+    email: "elcio.pessoa@outlook.com",
     estado_id: "Minas Gerais"
   },
   {
@@ -244,12 +256,6 @@ export const representacaoSet = [
     telefone: "34 9194-7840",
     email: "representacoesnetooliveira@gmail.com",
     estado_id: "Minas Gerais"
-  },
-  {
-    representacao: "PRN REPRESENTAÇÕES LTDA",
-    telefone: "83 8886-8552",
-    email: "Desligado o representante",
-    estado_id: "Paraíba"
   },
   {
     representacao: "RC REIS JUNIOR COMERCIO E REPRESENTAÇÕES",
@@ -270,34 +276,22 @@ export const representacaoSet = [
     estado_id: "Paraná"
   },
   {
-    representacao: "REPRESENTACAO COMERCIAL CARVALHO JUNIOR E SA LTDA",
-    telefone: "",
-    email: "",
-    estado_id: "Minas Gerais"
-  },
-  {
     representacao: "RICARDO TRIGO REPRESENTACOES COMERCIAIS LTDA ME",
     telefone: "45 9924-9726",
     email: "marcomspinelli@hotmail.com",
     estado_id: "Paraná"
   },
   {
-    representacao: "RIO VERDE REPRESENTAÇÕES",
-    telefone: "",
-    email: "",
-    estado_id: "Santa Catarina"
-  },
-  {
-    representacao: "RJK REPRESENTACOES LTDA",
-    telefone: "",
-    email: "",
-    estado_id: "Bahia"
+    representacao: "RMJ REPRESENTAÇÕES",
+    telefone: "62 8415-5750",
+    email: "jacqueline@rmjrepresentacoes.com.br",
+    estado_id: "Goiás"
   },
   {
     representacao: "RMJ REPRESENTAÇÕES",
     telefone: "62 8415-5750",
     email: "jacqueline@rmjrepresentacoes.com.br",
-    estado_id: "Goiás"
+    estado_id: "Distrito Federal"
   },
   {
     representacao: "RS BURACIA",
@@ -318,12 +312,6 @@ export const representacaoSet = [
     estado_id: "Minas Gerais"
   },
   {
-    representacao: "SUL REPRESENTAÇÕES",
-    telefone: "",
-    email: "",
-    estado_id: "Espírito Santo"
-  },
-  {
     representacao: "TC REPRESENTAÇÕES",
     telefone: "19 99171-3918",
     email: "thiagocarvalho@tcrepresentacoes.com.br",
@@ -336,22 +324,10 @@ export const representacaoSet = [
     estado_id: "Minas Gerais"
   },
   {
-    representacao: "TCHE REPRESENTAÇÕES",
-    telefone: "",
-    email: "",
-    estado_id: "Bahia"
-  },
-  {
     representacao: "V R M RIO PRETO REPRESENTACOES COMERCIAIS LTDA",
     telefone: "17 98171-2413",
     email: "rodrigo@vrmriopreto.com",
     estado_id: "São Paulo"
-  },
-  {
-    representacao: "W BRASIL DE SIQUEIRA REPRESENTACOES",
-    telefone: "",
-    email: "",
-    estado_id: "Acre"
   },
   {
     representacao: "DRENGEO ENGENHARIA CONTRUCOES E REPRESENTAÇÕES - LEAL REPRESENTAÇÕES",
@@ -360,3 +336,34 @@ export const representacaoSet = [
     estado_id: "Paraíba"
   }
 ];
+
+// Mapeamento de siglas para nomes completos dos estados
+const estados = {
+  "AC": "Acre",
+  "AL": "Alagoas",
+  "AM": "Amazonas",
+  "AP": "Amapá",
+  "BA": "Bahia",
+  "CE": "Ceará",
+  "DF": "Distrito Federal",
+  "ES": "Espírito Santo",
+  "GO": "Goiás",
+  "MA": "Maranhão",
+  "MG": "Minas Gerais",
+  "MS": "Mato Grosso do Sul",
+  "MT": "Mato Grosso",
+  "PA": "Pará",
+  "PB": "Paraíba",
+  "PE": "Pernambuco",
+  "PI": "Piauí",
+  "PR": "Paraná",
+  "RJ": "Rio de Janeiro",
+  "RN": "Rio Grande do Norte",
+  "RO": "Rondônia",
+  "RR": "Roraima",
+  "RS": "Rio Grande do Sul",
+  "SC": "Santa Catarina",
+  "SE": "Sergipe",
+  "SP": "São Paulo",
+  "TO": "Tocantins"
+};
