@@ -41,19 +41,19 @@ const colsonLogoNoWhite = require('../../assets/images/Logo-Colson.png');
                 <Image 
                   source={colsonLogoNoWhite} 
                   style={[styles.logo, { 
-                    width: responsiveWidth(18), 
+                    width: responsiveWidth(17), 
                     height: responsiveHeight(6) 
                   }]} 
                   resizeMode="contain" 
                 />
                 <View style={[styles.divider, { 
                   height: responsiveHeight(5), 
-                  marginHorizontal: responsiveWidth(5) 
+                  marginHorizontal: responsiveWidth(2) 
                 }]} />
                 <Image 
                   source={casterineLogoNoWhite} 
                   style={[styles.logoCasterien, { 
-                    width: responsiveWidth(25), 
+                    width: responsiveWidth(24), 
                     height: responsiveHeight(6) 
                   }]} 
                   resizeMode="contain" 

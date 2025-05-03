@@ -34,7 +34,7 @@ key={idx}
   strokeLinecap="round"
   strokeLinejoin="round"
   fill={estado.defaultColor}
-  onPressIn={() => handlePress(estado.id)}
+  onPressIn={() => handlePress(estado.name)}
 />
 
             ))
