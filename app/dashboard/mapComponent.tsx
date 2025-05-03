@@ -12,7 +12,7 @@ function SvgComponent(props: any) {
   const svgHeight = (svgWidth * 460) / 450; 
 
   const handlePress = (estadoId: string) => {
-    console.log('chgou aqui', estadoId)
+    console.log('chegou aqui', estadoId)
     router.push({
       pathname: "/dashboard/[id]",
       params: { id: estadoId },
@@ -34,7 +34,7 @@ key={idx}
   strokeLinecap="round"
   strokeLinejoin="round"
   fill={estado.defaultColor}
-  onPressIn={() => handlePress(estado.id)}
+  onPressIn={() => handlePress(estado.name)}
 />
 
             ))

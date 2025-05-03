@@ -12,7 +12,12 @@ const COLORS = {
 export default function DetalhesDoEstado() {
   const navigation = useNavigation()
   const { id } = useLocalSearchParams();
+  console.log(id)
+
+
   const estadoDetalhes = representacaoSet.filter(estado => estado.estado_id === id);
+
+  console.log(estadoDetalhes)
 
   const casterineLogoNoWhite = require('../../assets/images/Logo-Casterine.png');
 const colsonLogoNoWhite = require('../../assets/images/Logo-Colson.png');
